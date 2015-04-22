@@ -23,12 +23,13 @@ ActiveRecord::Base.configurations[:development] = {
 
 }
 
+postgres = URI.parse(ENV['DATABASE_URL'] || '')
 ActiveRecord::Base.configurations[:production] = {
   :adapter   => 'postgresql',
-  :database  => 'padrino_rest_api_production',
-  :username  => 'root',
-  :password  => '',
-  :host      => 'localhost',
+  :database  => postgres.path[1..-1],
+  :username  => postgres.user,
+  :password  => postgres.password,
+  :host      => postgres.host,
   :port      => 5432
 
 }
