@@ -1,10 +1,10 @@
 require 'airborne_helper'
 
-describe '/api/companies' do
-  describe 'GET /' do
+describe 'Company' do
+  describe 'GET /api/companies' do
     before do
       create :company
-      get '/api/companies.json'
+      get '/api/companies'
     end
 
     it 'returns array of company' do

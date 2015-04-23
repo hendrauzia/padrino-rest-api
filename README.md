@@ -37,37 +37,20 @@ If all goes well, run the application.
 
     bundle exec padrino start
 
-## API Data Format
-
-This api provides 2 data format, which are xml and json. By default if you
-don't provide the desired format in the request as follows.
-
-    GET /api/companies
-
-It will give you data in xml format, but if you provide the format as follows.
-
-    GET /api/companies.json
-    GET /api/companies.xml
-
-It will give you data either in json or xml format as provided.
-
 ## Company
 
 There is 1 api in total on manipulating the company data, following are the api
-that you can use. All api has 2 formats that you can use, which are xml and
-json, but the examples shown here are using only json format for simplicity.
+that you can use.
 
 ### List all companies
 
-**HTTP**
+    GET /api/companies
 
-    GET /api/companies.json
+**Example**
 
-**CURL**
+    curl http://127.0.0.1:3000/api/companies
 
-    curl http://127.0.0.1:3000/api/companies.json
-
-**JSON**
+**Response**
 
 ```json
 [
@@ -84,3 +67,4 @@ json, but the examples shown here are using only json format for simplicity.
   }
 ]
 ```
+
