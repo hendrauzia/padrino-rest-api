@@ -1,36 +1,40 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
-# Distribute your app as a gem
-# gemspec
-
-# Server requirements
-# gem 'thin' # or mongrel
-# gem 'trinidad', :platform => 'jruby'
+gem 'padrino', '0.12.5'
 
 # Optional JSON codec (faster performance)
 # gem 'oj'
+
+# Server requirements
+gem 'puma'
 
 # Project requirements
 gem 'rake'
 
 # Component requirements
-gem 'sass'
-gem 'slim'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'pg'
+gem 'sass'
+gem 'slim'
 
-# Test requirements
-
-# Padrino Stable Gem
-gem 'padrino', '0.12.5'
-
-# Or Padrino Edge
-# gem 'padrino', :github => 'padrino/padrino-framework'
+# API requirements
+gem 'grape'
+gem 'padrino-grape', github: 'adamluzsi/padrino-grape'
 
 # Or Individual Gems
 # %w(core support gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.12.5'
 # end
+group :development, :test do
+  gem 'factory_girl'
+  gem 'faker'
+end
 
-gem 'puma'
+group :test do
+  gem 'airborne'
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'rack-test', require: 'rack/test'
+  gem 'shoulda-matchers'
+end

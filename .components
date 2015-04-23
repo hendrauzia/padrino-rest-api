@@ -1,5 +1,6 @@
 ---
 :orm: activerecord
+:test: rspec
 :test: none
 :mock: none
 :script: jquery
