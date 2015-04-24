@@ -13,6 +13,7 @@ gem 'puma'
 gem 'rake'
 
 # Component requirements
+gem 'carrierwave'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'pg'
 gem 'sass'
@@ -34,9 +35,11 @@ group :development, :test do
 end
 
 group :test do
-  gem 'airborne'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'rack-test', require: 'rack/test'
   gem 'shoulda-matchers'
+
+  # API support
+  gem 'airborne'
 end

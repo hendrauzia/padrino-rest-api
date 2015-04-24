@@ -39,8 +39,8 @@ If all goes well, run the application.
 
 ## Company
 
-There is 2 api in total on manipulating the company data, following are the api
-that you can use.
+There are several api that you can use to manipulate the company data,
+following are the api that you can use.
 
 ### Retrieve all companies
 
@@ -176,5 +176,37 @@ And you can use curl with json above as the data to be updated.
   "country": "Sierra Leone",
   "email": "ines@mitchell.name",
   "phone": "311.614.3341 x111"
+}
+```
+
+## Passport
+
+Passport is a property of each employee and each employee can have one or more
+passport, following are the api available for managing passport.
+
+### Create a passport
+
+    POST /api/employees/:employee_id/passport
+
+**Input**
+
+| Name | Type            | Description                               |
+| ---- | --------------- | ----------------------------------------- |
+| file | application/pdf | **Required**. The pdf file to be uploaded |
+
+**Example**
+
+    curl -X POST -F file=@passport.pdf http://127.0.0.1:3000/api/employees/7/passports
+
+**Response**
+
+```json
+{
+  "id": 8,
+  "employee_id": 7,
+  "upload_id": 8,
+  "upload_file_url": "/uploads/passport.pdf",
+  "created_at": "2015-04-24T06:22:17.648Z",
+  "updated_at": "2015-04-24T06:22:17.648Z"
 }
 ```

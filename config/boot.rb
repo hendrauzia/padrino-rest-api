@@ -31,6 +31,8 @@ Bundler.require(:default, RACK_ENV)
 #   include Padrino::Helpers::TranslationHelpers
 # end
 
+ActiveRecord::Base.raise_in_transactional_callbacks = true
+
 ##
 # Add your before (RE)load hooks here
 #

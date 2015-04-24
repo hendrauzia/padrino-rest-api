@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 5) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,12 +38,30 @@ ActiveRecord::Schema.define(version: 3) do
   add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
   add_index "employees", ["position_id"], name: "index_employees_on_position_id", using: :btree
 
+  create_table "passports", force: :cascade do |t|
+    t.integer  "employee_id", null: false
+    t.integer  "upload_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "passports", ["employee_id"], name: "index_passports_on_employee_id", using: :btree
+  add_index "passports", ["upload_id"], name: "index_passports_on_upload_id", using: :btree
+
   create_table "positions", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "uploads", force: :cascade do |t|
+    t.text     "file",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "employees", "companies"
   add_foreign_key "employees", "positions"
+  add_foreign_key "passports", "employees"
+  add_foreign_key "passports", "uploads"
 end

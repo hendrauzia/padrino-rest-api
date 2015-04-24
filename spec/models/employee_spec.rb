@@ -6,4 +6,5 @@ describe Employee do
 
   it { is_expected.to belong_to(:company) }
   it { is_expected.to belong_to(:position) }
+  it { is_expected.to have_many(:passports) }
 end

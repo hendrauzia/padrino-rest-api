@@ -33,6 +33,11 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     builder (3.2.2)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -185,6 +190,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (>= 3.1)
   airborne
+  carrierwave
   database_cleaner
   factory_girl
   faker
