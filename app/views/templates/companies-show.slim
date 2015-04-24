@@ -1,0 +1,27 @@
+script type="text/x-handlebars" data-template-name="companies/show"
+  erb:
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">Company Detail</h2>
+        </div>
+        <div class="panel-body">
+          <dl class="dl-horizontal">
+            <dt>Id</dt>
+            <dd>{{model.id}}</dd>
+            <dt>Name</dt>
+            <dd>{{model.name}}</dd>
+            <dt>Address</dt>
+            <dd>{{model.address}}</dd>
+            <dt>City</dt>
+            <dd>{{model.city}}</dd>
+            <dt>Country</dt>
+            <dd>{{model.country}}</dd>
+            <dt>Email</dt>
+            <dd>{{model.email}}</dd>
+            <dt>Phone</dt>
+            <dd>{{model.phone}}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>

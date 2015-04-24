@@ -11,7 +11,11 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="/" Padrino REST API
+          a.navbar-brand href="#" Padrino REST API
+        .collapse.navbar-collapse#main-menu-navbar
+          ul.nav.navbar-nav
+            li
+              a href="#/companies" Companies
 
     .container
       .jumbotron
@@ -19,8 +23,13 @@ html
         p This is an example of rest api server and client implementation using Padrino, Grape, RABL and Ember.js.
         a.btn.btn-info href="https://github.com/hendrauzia/padrino-rest-api" Learn More
 
-    .container#main-content
-      script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
+    .container
+      ol.breadcrumb
+        li
+          a href="#" Home
+        li.active Companies
+
+    script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
 
     script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.2/handlebars.min.js"
     script src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.11.3/ember.min.js"
@@ -32,3 +41,4 @@ html
     = javascript_include_tag 'application', 'router', 'models/company'
 
     = render 'templates/companies'
+    = render 'templates/companies-show'

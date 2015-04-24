@@ -1,4 +1,4 @@
-script type="text/x-handlebars" data-template-name="companies"
+script type="text/x-handlebars" data-template-name="companies/index"
   erb:
     <div class="container">
       <div class="panel panel-default">
@@ -7,7 +7,9 @@ script type="text/x-handlebars" data-template-name="companies"
         </div>
         <ul class="list-group">
           {{#each company in model}}
-            <li class="list-group-item">{{company.name}}</li>
+            <li class="list-group-item">
+              {{#link-to 'companies.show' company}}{{company.name}}{{/link-to}}
+            </li>
           {{/each}}
         </ul>
       </div>
