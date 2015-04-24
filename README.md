@@ -85,7 +85,7 @@ that you can use.
 
 **Example**
 
-Let's put the json data to be posted in a file named `body.json`.
+Let's put the json data to be created in a file named `body.json`.
 
 ```json
 {
@@ -98,7 +98,7 @@ Let's put the json data to be posted in a file named `body.json`.
 }
 ```
 
-And you can use curl with json above as the data to be posted.
+And you can use curl with json above as the data to be created.
 
     curl -H "Content-Type: application/json" -X POST -d @body.json http://127.0.0.1:3000/api/companies
 
@@ -139,5 +139,42 @@ And you can use curl with json above as the data to be posted.
   "phone": null,
   "created_at": "2015-04-24T02:48:33.767Z",
   "updated_at": "2015-04-24T02:48:33.767Z"
+}
+```
+
+### Update a company
+
+    PATCH /api/companies/:id
+
+**Example**
+
+Let's put the json data to be updated in a file named `body.json`.
+
+```json
+{
+  "name": "Rutherford and Sons",
+  "address": "38457 Heaney Ranch",
+  "city": "North Autumnport",
+  "country": "Sierra Leone",
+  "email": "ines@mitchell.name",
+  "phone": "311.614.3341 x111"
+}
+```
+
+And you can use curl with json above as the data to be updated.
+
+    curl -H "Content-Type: application/json" -X PATCH -d @body.json http://127.0.0.1:3000/api/companies/9
+
+**Response**
+
+```json
+{
+  "id": 9,
+  "name": "Rutherford and Sons",
+  "address": "38457 Heaney Ranch",
+  "city": "North Autumnport",
+  "country": "Sierra Leone",
+  "email": "ines@mitchell.name",
+  "phone": "311.614.3341 x111"
 }
 ```

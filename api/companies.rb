@@ -7,13 +7,7 @@ class Api
 
     desc "Create a company"
     params do
-      requires :name,    type: String, allow_blank: false
-      requires :address, type: String, allow_blank: false
-      requires :city,    type: String, allow_blank: false
-      requires :country, type: String, allow_blank: false
-
-      optional :email,   type: String, allow_blank: true
-      optional :phone,   type: String, allow_blank: true
+      use :company
     end
     post do
       Company.create declared(params)
@@ -22,6 +16,15 @@ class Api
     desc "Retrieve a company"
     get ':id' do
       Company.find params[:id]
+    end
+
+    desc "Update a company"
+    params do
+      use :company
+    end
+    patch ':id' do
+      company = Company.find params[:id]
+      company.tap { |c| c.update declared(params) }
     end
   end
 end

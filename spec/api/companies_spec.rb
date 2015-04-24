@@ -76,4 +76,25 @@ describe 'Company' do
       expect_json({ id: company.id, name: name })
     end
   end
+
+  describe 'PATCH /api/companies/:id' do
+    let(:name)    { 'Company Name before PATCH /api/companies/:id' }
+    let(:company) { create :company, name: name }
+    let(:data)    {{
+      name: 'Company Name after PATCH /api/companies/:id',
+      address: Faker::Address.street_address,
+      city:    Faker::Address.city,
+      country: Faker::Address.country,
+      phone:   Faker::PhoneNumber.phone_number,
+      email:   Faker::Internet.email
+    }}
+
+    before do
+      patch "/api/companies/#{ company.id }", data
+    end
+
+    it 'updates and return the company' do
+      expect_json({ id: company.id, **data })
+    end
+  end
 end
