@@ -39,7 +39,7 @@ If all goes well, run the application.
 
 ## Company
 
-There is 1 api in total on manipulating the company data, following are the api
+There is 2 api in total on manipulating the company data, following are the api
 that you can use.
 
 ### List all companies
@@ -68,3 +68,52 @@ that you can use.
 ]
 ```
 
+### Create a company
+
+    POST /api/companies
+
+**Input**
+
+| Name    | Type   | Description                                  |
+| ------- | ------ | -------------------------------------------- |
+| name    | string | **Required**. The name of the company.       |
+| address | string | **Required**. Street address of the company. |
+| city    | string | **Required**. City name of the company.      |
+| country | string | **Required**. Country name of the company.   |
+| email   | string | Company email address.                       |
+| phone   | string | Company phone number.                        |
+
+**Example**
+
+Let's put the json data to be posted in a file named `body.json`.
+
+```json
+{
+  "name": "Rohan and Sons",
+  "address": "2882 Solon Cape",
+  "city": "Lake Sherwoodland",
+  "country": "Uganda",
+  "email": null,
+  "phone": null
+}
+```
+
+And you can use curl with json above as the data to be posted.
+
+    curl -H "Content-Type: application/json" -X POST -d @body.json http://127.0.0.1:3000/api/companies
+
+**Response**
+
+```json
+{
+  "id": 18,
+  "name": "Rohan and Sons",
+  "address": "2882 Solon Cape",
+  "city": "Lake Sherwoodland",
+  "country": "Uganda",
+  "email": null,
+  "phone": null,
+  "created_at": "2015-04-24T02:48:33.767Z",
+  "updated_at": "2015-04-24T02:48:33.767Z"
+}
+```

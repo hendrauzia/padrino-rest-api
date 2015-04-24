@@ -20,6 +20,7 @@ gem 'slim'
 
 # API requirements
 gem 'grape'
+gem 'hashie-forbidden_attributes'
 gem 'padrino-grape', github: 'adamluzsi/padrino-grape'
 
 # Or Individual Gems
@@ -29,6 +30,7 @@ gem 'padrino-grape', github: 'adamluzsi/padrino-grape'
 group :development, :test do
   gem 'factory_girl'
   gem 'faker'
+  gem 'pry'
 end
 
 group :test do
