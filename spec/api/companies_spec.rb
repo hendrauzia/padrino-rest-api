@@ -8,7 +8,7 @@ describe 'Company' do
     end
 
     it 'returns array of company' do
-      expect_json_types('*', {
+      expect_json_types('companies.*', {
         id:         :int,
         name:       :string,
         address:    :string,

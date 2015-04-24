@@ -14,13 +14,14 @@ gem 'rake'
 
 # Component requirements
 gem 'carrierwave'
-gem 'activerecord', '>= 3.1', :require => 'active_record'
+gem 'activerecord', '>= 3.1', require: 'active_record'
 gem 'pg'
 gem 'sass'
 gem 'slim'
 
 # API requirements
 gem 'grape'
+gem 'grape-rabl'
 gem 'hashie-forbidden_attributes'
 gem 'padrino-grape', github: 'adamluzsi/padrino-grape'
 
@@ -37,9 +38,8 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'rspec'
-  gem 'rack-test', require: 'rack/test'
   gem 'shoulda-matchers'
 
-  # API support
+  # API testing support
   gem 'airborne'
 end

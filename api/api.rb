@@ -2,6 +2,7 @@ class Api < Grape::API
   include PadrinoGrape
 
   format :json
+  formatter :json, Grape::Formatter::Rabl
 
   helpers do
     params :company do

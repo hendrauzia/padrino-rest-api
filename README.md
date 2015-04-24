@@ -53,19 +53,21 @@ following are the api that you can use.
 **Response**
 
 ```json
-[
-  {
-    "id": 9,
-    "name": "Rohan and Sons",
-    "address": "2882 Solon Cape",
-    "city": "Lake Sherwoodland",
-    "country": "Uganda",
-    "email": null,
-    "phone": null,
-    "created_at": "2015-04-23T00:58:57.583Z",
-    "updated_at": "2015-04-23T00:58:57.583Z"
-  }
-]
+{
+  "companies": [
+    {
+      "id": 9,
+      "name": "Rohan and Sons",
+      "address": "2882 Solon Cape",
+      "city": "Lake Sherwoodland",
+      "country": "Uganda",
+      "email": null,
+      "phone": null,
+      "created_at": "2015-04-23T00:58:57.583Z",
+      "updated_at": "2015-04-23T00:58:57.583Z"
+    }
+  ]
+}
 ```
 
 ### Create a company

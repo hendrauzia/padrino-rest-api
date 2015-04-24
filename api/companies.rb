@@ -2,7 +2,8 @@ class Api
   resource :companies do
     desc "Retrieve all companies"
     get do
-      Company.all
+      @companies = Company.all
+      render rabl: 'companies/index'
     end
 
     desc "Create a company"

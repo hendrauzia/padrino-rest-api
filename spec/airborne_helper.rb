@@ -8,3 +8,8 @@ Dir[File.expand_path(File.dirname(__FILE__) + "/support/**/*.rb")].each(&method(
 Airborne.configure do |config|
   config.rack_app = Padrino.application
 end
+
+Api.before do
+  require File.expand_path(Padrino.root + "/config/initializers/rabl.rb")
+  env['api.tilt.root'] = File.join(Padrino.root, "/app/views")
+end
