@@ -1,0 +1,14 @@
+script type="text/x-handlebars" data-template-name="companies"
+  erb:
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">Companies</h2>
+        </div>
+        <ul class="list-group">
+          {{#each company in model}}
+            <li class="list-group-item">{{company.name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>

@@ -7,6 +7,10 @@ module PadrinoRestApi
 
     enable :sessions
 
+    get :index do
+      render 'app'
+    end
+
     ##
     # Caching support.
     #
