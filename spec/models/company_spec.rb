@@ -12,4 +12,6 @@ describe Company do
   it { is_expected.to validate_presence_of(:address) }
   it { is_expected.to validate_presence_of(:city) }
   it { is_expected.to validate_presence_of(:country) }
+
+  it { is_expected.to have_many(:employees) }
 end
