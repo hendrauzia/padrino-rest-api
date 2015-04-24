@@ -42,7 +42,7 @@ If all goes well, run the application.
 There is 2 api in total on manipulating the company data, following are the api
 that you can use.
 
-### List all companies
+### Retrieve all companies
 
     GET /api/companies
 
@@ -106,7 +106,31 @@ And you can use curl with json above as the data to be posted.
 
 ```json
 {
-  "id": 18,
+  "id": 9,
+  "name": "Rohan and Sons",
+  "address": "2882 Solon Cape",
+  "city": "Lake Sherwoodland",
+  "country": "Uganda",
+  "email": null,
+  "phone": null,
+  "created_at": "2015-04-24T02:48:33.767Z",
+  "updated_at": "2015-04-24T02:48:33.767Z"
+}
+```
+
+### Retrieve a company
+
+    GET /api/companies/:id
+
+**Example**
+
+    curl http://127.0.0.1:3000/api/companies/9
+
+**Response**
+
+```json
+{
+  "id": 9,
   "name": "Rohan and Sons",
   "address": "2882 Solon Cape",
   "city": "Lake Sherwoodland",

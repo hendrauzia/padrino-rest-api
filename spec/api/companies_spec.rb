@@ -63,4 +63,17 @@ describe 'Company' do
       })
     end
   end
+
+  describe 'GET /api/companies/:id' do
+    let(:name)    { 'Company Name by GET /api/companies/:id' }
+    let(:company) { create :company, name: name }
+
+    before do
+      get "/api/companies/#{ company.id }"
+    end
+
+    it 'returns a company' do
+      expect_json({ id: company.id, name: name })
+    end
+  end
 end

@@ -18,5 +18,10 @@ class Api
     post do
       Company.create declared(params)
     end
+
+    desc "Retrieve a company"
+    get ':id' do
+      Company.find params[:id]
+    end
   end
 end
