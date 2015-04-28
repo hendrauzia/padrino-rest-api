@@ -3,7 +3,12 @@ script type="text/x-handlebars" data-template-name="companies/show"
     <div class="container">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h2 class="panel-title">Company Detail</h2>
+          <h2 class="panel-title clearfix">
+            <span class="panel-title__text">Company Detail</span>
+            {{#link-to 'companies.edit' model class="btn btn-primary pull-right"}}
+              <span class="glyphicon glyphicon-pencil" style="color: white"></span>
+            {{/link-to}}
+          </h2>
         </div>
         <div class="panel-body">
           <dl class="dl-horizontal">

@@ -1,6 +1,7 @@
 PadrinoRestApi.Router.map(function(){
   this.resource('companies', function(){
     this.route('show', { path: ':id' });
+    this.route('edit', { path: ':id/edit' });
   });
 });
 
@@ -17,7 +18,13 @@ PadrinoRestApi.CompaniesRoute = Ember.Route.extend({
 });
 
 PadrinoRestApi.CompaniesShowRoute = Ember.Route.extend({
-  model: function(params) {
+  model: function(params){
+    return this.store.find('company', params.id);
+  }
+});
+
+PadrinoRestApi.CompaniesEditRoute = Ember.Route.extend({
+  model: function(params){
     return this.store.find('company', params.id);
   }
 });

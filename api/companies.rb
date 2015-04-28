@@ -11,7 +11,7 @@ class Api
       use :company
     end
     post do
-      Company.create declared(params)
+      Company.create declared(params).fetch('company')
     end
 
     desc "Retrieve a company"
@@ -19,13 +19,15 @@ class Api
       Company.find params[:id]
     end
 
-    desc "Update a company"
-    params do
-      use :company
-    end
-    patch ':id' do
-      company = Company.find params[:id]
-      company.tap { |c| c.update declared(params) }
+    ['put', 'patch'].each do |method|
+      desc "Update a company"
+      params do
+        use :company
+      end
+      send method, ':id' do
+        company = Company.find params[:id]
+        company.tap { |c| c.update declared(params).fetch('company') }
+      end
     end
   end
 end

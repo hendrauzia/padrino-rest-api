@@ -7,8 +7,11 @@ script type="text/x-handlebars" data-template-name="companies/index"
         </div>
         <ul class="list-group">
           {{#each company in model}}
-            <li class="list-group-item">
-              {{#link-to 'companies.show' company}}{{company.name}}{{/link-to}}
+            <li class="list-group-item clearfix">
+              {{#link-to 'companies.show' company class="companies-show-link"}}{{company.name}}{{/link-to}}
+              {{#link-to 'companies.edit' company class="pull-right btn btn-primary"}}
+                <span class="glyphicon glyphicon-pencil" style="color: white"></span>
+              {{/link-to}}
             </li>
           {{/each}}
         </ul>

@@ -76,6 +76,8 @@ following are the api that you can use.
 
 **Input**
 
+The following input must be put inside json root named `company`.
+
 | Name    | Type   | Description                                  |
 | ------- | ------ | -------------------------------------------- |
 | name    | string | **Required**. The name of the company.       |
@@ -91,12 +93,14 @@ Let's put the json data to be created in a file named `body.json`.
 
 ```json
 {
-  "name": "Rohan and Sons",
-  "address": "2882 Solon Cape",
-  "city": "Lake Sherwoodland",
-  "country": "Uganda",
-  "email": null,
-  "phone": null
+  "company": {
+    "name": "Rohan and Sons",
+    "address": "2882 Solon Cape",
+    "city": "Lake Sherwoodland",
+    "country": "Uganda",
+    "email": null,
+    "phone": null
+  }
 }
 ```
 
@@ -148,18 +152,34 @@ And you can use curl with json above as the data to be created.
 
     PATCH /api/companies/:id
 
+**Input**
+
+The following input must be put inside json root named `company`.
+
+| Name    | Type   | Description                                  |
+| ------- | ------ | -------------------------------------------- |
+| name    | string | **Required**. The name of the company.       |
+| address | string | **Required**. Street address of the company. |
+| city    | string | **Required**. City name of the company.      |
+| country | string | **Required**. Country name of the company.   |
+| email   | string | Company email address.                       |
+| phone   | string | Company phone number.                        |
+
+
 **Example**
 
 Let's put the json data to be updated in a file named `body.json`.
 
 ```json
 {
-  "name": "Rutherford and Sons",
-  "address": "38457 Heaney Ranch",
-  "city": "North Autumnport",
-  "country": "Sierra Leone",
-  "email": "ines@mitchell.name",
-  "phone": "311.614.3341 x111"
+  "company" : {
+    "name": "Rutherford and Sons",
+    "address": "38457 Heaney Ranch",
+    "city": "North Autumnport",
+    "country": "Sierra Leone",
+    "email": "ines@mitchell.name",
+    "phone": "311.614.3341 x111"
+  }
 }
 ```
 
@@ -177,7 +197,9 @@ And you can use curl with json above as the data to be updated.
   "city": "North Autumnport",
   "country": "Sierra Leone",
   "email": "ines@mitchell.name",
-  "phone": "311.614.3341 x111"
+  "phone": "311.614.3341 x111",
+  "created_at": "2015-04-24T02:48:33.767Z",
+  "updated_at": "2015-04-24T02:48:33.767Z"
 }
 ```
 

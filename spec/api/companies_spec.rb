@@ -34,12 +34,14 @@ describe 'Company' do
 
     before do
       post '/api/companies', {
-        name:    data.name,
-        address: data.address,
-        city:    data.city,
-        country: data.country,
-        email:   data.email,
-        phone:   data.phone
+        company: {
+          name:    data.name,
+          address: data.address,
+          city:    data.city,
+          country: data.country,
+          email:   data.email,
+          phone:   data.phone
+        }
       }
     end
 
@@ -77,24 +79,28 @@ describe 'Company' do
     end
   end
 
-  describe 'PATCH /api/companies/:id' do
-    let(:name)    { 'Company Name before PATCH /api/companies/:id' }
-    let(:company) { create :company, name: name }
-    let(:data)    {{
-      name: 'Company Name after PATCH /api/companies/:id',
-      address: Faker::Address.street_address,
-      city:    Faker::Address.city,
-      country: Faker::Address.country,
-      phone:   Faker::PhoneNumber.phone_number,
-      email:   Faker::Internet.email
-    }}
+  ['put', 'patch'].each do |method|
+    describe "#{method.upcase} /api/companies/:id" do
+      let(:name)    { "Company Name before #{method.upcase} /api/companies/:id" }
+      let(:company) { create :company, name: name }
+      let(:data)    {{
+        company: {
+          name: "Company Name after #{method.upcase} /api/companies/:id",
+          address: Faker::Address.street_address,
+          city:    Faker::Address.city,
+          country: Faker::Address.country,
+          phone:   Faker::PhoneNumber.phone_number,
+          email:   Faker::Internet.email
+        }
+      }}
 
-    before do
-      patch "/api/companies/#{ company.id }", data
-    end
+      before do
+        send method, "/api/companies/#{ company.id }", data
+      end
 
-    it 'updates and return the company' do
-      expect_json({ id: company.id, **data })
+      it 'updates and return the company' do
+        expect_json({ id: company.id, **data[:company] })
+      end
     end
   end
 end
