@@ -38,6 +38,11 @@ ActiveRecord::Base.raise_in_transactional_callbacks = true
 #
 Padrino.before_load do
   Padrino.dependency_paths << Padrino.root('api/**/*.rb')
+
+  ActiveModel::Serializer.setup do |config|
+    config.embed = :ids
+    config.embed_in_root = true
+  end
 end
 
 ##

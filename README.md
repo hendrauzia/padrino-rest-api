@@ -40,7 +40,8 @@ If all goes well, run the application.
 ## Company
 
 There are several api that you can use to manipulate the company data,
-following are the api that you can use.
+following are the api that you can use. All api include side-load data to
+reduce application requests.
 
 ### Retrieve all companies
 
@@ -64,7 +65,28 @@ following are the api that you can use.
       "email": null,
       "phone": null,
       "created_at": "2015-04-23T00:58:57.583Z",
-      "updated_at": "2015-04-23T00:58:57.583Z"
+      "updated_at": "2015-04-23T00:58:57.583Z",
+      "employee_ids": [
+        9
+      ]
+    }
+  ],
+  "positions": [
+    {
+      "id": 2,
+      "name": "Director",
+      "created_at": "2015-04-29T02:05:28.092Z",
+      "updated_at": "2015-04-29T02:05:28.092Z"
+    }
+  ],
+  "employees": ]
+    {
+      "id": 9,
+      "name": "Halle Kuhlman",
+      "position_id": 2,
+      "company_id": 9,
+      "created_at": "2015-04-29T02:05:28.122Z",
+      "updated_at": "2015-04-29T02:05:28.122Z"
     }
   ]
 }
@@ -121,8 +143,10 @@ And you can use curl with json above as the data to be created.
     "email": null,
     "phone": null,
     "created_at": "2015-04-24T02:48:33.767Z",
-    "updated_at": "2015-04-24T02:48:33.767Z"
-  }
+    "updated_at": "2015-04-24T02:48:33.767Z",
+    "employee_ids": []
+  },
+  "employees": []
 }
 ```
 
@@ -147,8 +171,29 @@ And you can use curl with json above as the data to be created.
     "email": null,
     "phone": null,
     "created_at": "2015-04-24T02:48:33.767Z",
-    "updated_at": "2015-04-24T02:48:33.767Z"
-  }
+    "updated_at": "2015-04-24T02:48:33.767Z",
+    "employee_ids": [
+      9
+    ]
+  },
+  "positions": [
+    {
+      "id": 2,
+      "name": "Director",
+      "created_at": "2015-04-29T02:05:28.092Z",
+      "updated_at": "2015-04-29T02:05:28.092Z"
+    }
+  ],
+  "employees": ]
+    {
+      "id": 9,
+      "name": "Halle Kuhlman",
+      "position_id": 2,
+      "company_id": 9,
+      "created_at": "2015-04-29T02:05:28.122Z",
+      "updated_at": "2015-04-29T02:05:28.122Z"
+    }
+  ]
 }
 ```
 
@@ -205,7 +250,28 @@ And you can use curl with json above as the data to be updated.
     "phone": "311.614.3341 x111",
     "created_at": "2015-04-24T02:48:33.767Z",
     "updated_at": "2015-04-24T02:48:33.767Z"
-  }
+    "employee_ids": [
+      9
+    ]
+  },
+  "positions": [
+    {
+      "id": 2,
+      "name": "Director",
+      "created_at": "2015-04-29T02:05:28.092Z",
+      "updated_at": "2015-04-29T02:05:28.092Z"
+    }
+  ],
+  "employees": ]
+    {
+      "id": 9,
+      "name": "Halle Kuhlman",
+      "position_id": 2,
+      "company_id": 9,
+      "created_at": "2015-04-29T02:05:28.122Z",
+      "updated_at": "2015-04-29T02:05:28.122Z"
+    }
+  ]
 }
 ```
 

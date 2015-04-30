@@ -3,7 +3,10 @@ require 'airborne_helper'
 describe 'Company' do
   describe 'GET /api/companies' do
     before do
-      create :company
+      company  = create :company
+      position = create :position
+      employee = create :employee, company: company, position: position
+
       get '/api/companies'
     end
 
@@ -20,6 +23,9 @@ describe 'Company' do
         updated_at: :date
       })
     end
+
+    include_examples "sideload-employees"
+    include_examples "sideload-positions"
   end
 
   describe 'POST /api/companies' do
@@ -71,12 +77,18 @@ describe 'Company' do
     let(:company) { create :company, name: name }
 
     before do
+      position = create :position
+      employee = create :employee, company: company, position: position
+
       get "/api/companies/#{ company.id }"
     end
 
     it 'returns a company' do
       expect_json(company: { id: company.id, name: name })
     end
+
+    include_examples "sideload-employees"
+    include_examples "sideload-positions"
   end
 
   ['put', 'patch'].each do |method|
@@ -95,12 +107,18 @@ describe 'Company' do
       }}
 
       before do
+        position = create :position
+        employee = create :employee, company: company, position: position
+
         send method, "/api/companies/#{ company.id }", data
       end
 
       it 'updates and return the company' do
         expect_json(company: { id: company.id, **data[:company] })
       end
+
+      include_examples "sideload-employees"
+      include_examples "sideload-positions"
     end
   end
 end
