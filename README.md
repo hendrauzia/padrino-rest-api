@@ -112,15 +112,17 @@ And you can use curl with json above as the data to be created.
 
 ```json
 {
-  "id": 9,
-  "name": "Rohan and Sons",
-  "address": "2882 Solon Cape",
-  "city": "Lake Sherwoodland",
-  "country": "Uganda",
-  "email": null,
-  "phone": null,
-  "created_at": "2015-04-24T02:48:33.767Z",
-  "updated_at": "2015-04-24T02:48:33.767Z"
+  "company": {
+    "id": 9,
+    "name": "Rohan and Sons",
+    "address": "2882 Solon Cape",
+    "city": "Lake Sherwoodland",
+    "country": "Uganda",
+    "email": null,
+    "phone": null,
+    "created_at": "2015-04-24T02:48:33.767Z",
+    "updated_at": "2015-04-24T02:48:33.767Z"
+  }
 }
 ```
 
@@ -136,15 +138,17 @@ And you can use curl with json above as the data to be created.
 
 ```json
 {
-  "id": 9,
-  "name": "Rohan and Sons",
-  "address": "2882 Solon Cape",
-  "city": "Lake Sherwoodland",
-  "country": "Uganda",
-  "email": null,
-  "phone": null,
-  "created_at": "2015-04-24T02:48:33.767Z",
-  "updated_at": "2015-04-24T02:48:33.767Z"
+  "company": {
+    "id": 9,
+    "name": "Rohan and Sons",
+    "address": "2882 Solon Cape",
+    "city": "Lake Sherwoodland",
+    "country": "Uganda",
+    "email": null,
+    "phone": null,
+    "created_at": "2015-04-24T02:48:33.767Z",
+    "updated_at": "2015-04-24T02:48:33.767Z"
+  }
 }
 ```
 
@@ -191,15 +195,17 @@ And you can use curl with json above as the data to be updated.
 
 ```json
 {
-  "id": 9,
-  "name": "Rutherford and Sons",
-  "address": "38457 Heaney Ranch",
-  "city": "North Autumnport",
-  "country": "Sierra Leone",
-  "email": "ines@mitchell.name",
-  "phone": "311.614.3341 x111",
-  "created_at": "2015-04-24T02:48:33.767Z",
-  "updated_at": "2015-04-24T02:48:33.767Z"
+  "company": {
+    "id": 9,
+    "name": "Rutherford and Sons",
+    "address": "38457 Heaney Ranch",
+    "city": "North Autumnport",
+    "country": "Sierra Leone",
+    "email": "ines@mitchell.name",
+    "phone": "311.614.3341 x111",
+    "created_at": "2015-04-24T02:48:33.767Z",
+    "updated_at": "2015-04-24T02:48:33.767Z"
+  }
 }
 ```
 

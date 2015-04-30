@@ -21,7 +21,7 @@ gem 'slim'
 
 # API requirements
 gem 'grape'
-gem 'grape-rabl'
+gem 'grape-active_model_serializers'
 gem 'hashie-forbidden_attributes'
 gem 'padrino-grape', github: 'adamluzsi/padrino-grape'
 

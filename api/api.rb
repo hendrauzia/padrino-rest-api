@@ -2,7 +2,7 @@ class Api < Grape::API
   include PadrinoGrape
 
   format :json
-  formatter :json, Grape::Formatter::Rabl
+  formatter :json, Grape::Formatter::ActiveModelSerializers
 
   helpers do
     params :company do

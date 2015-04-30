@@ -52,7 +52,7 @@ describe 'Company' do
     end
 
     it 'returns company with id and timestamps' do
-      expect_json({
+      expect_json(company: {
         id:         company.id,
         name:       data.name,
         address:    data.address,
@@ -75,7 +75,7 @@ describe 'Company' do
     end
 
     it 'returns a company' do
-      expect_json({ id: company.id, name: name })
+      expect_json(company: { id: company.id, name: name })
     end
   end
 
@@ -99,7 +99,7 @@ describe 'Company' do
       end
 
       it 'updates and return the company' do
-        expect_json({ id: company.id, **data[:company] })
+        expect_json(company: { id: company.id, **data[:company] })
       end
     end
   end
