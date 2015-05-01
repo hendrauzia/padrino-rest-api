@@ -275,6 +275,57 @@ And you can use curl with json above as the data to be updated.
 }
 ```
 
+## Employees
+
+Following are api that you can use to manage employees.
+
+### Retrieve an employee
+
+    GET /api/employees/:id
+
+**Example**
+
+    curl http://127.0.0.1:3000/api/employees/9
+
+**Response**
+
+```json
+{
+  "employees": ]
+    {
+      "id": 9,
+      "name": "Halle Kuhlman",
+      "position_id": 2,
+      "company_id": 9,
+      "created_at": "2015-04-29T02:05:28.122Z",
+      "updated_at": "2015-04-29T02:05:28.122Z",
+      "passports": [
+        9
+      ]
+    }
+  ],
+  "positions": [
+    {
+      "id": 2,
+      "name": "Director",
+      "created_at": "2015-04-29T02:05:28.092Z",
+      "updated_at": "2015-04-29T02:05:28.092Z"
+    }
+  ],
+  "passports": [
+    {
+      "id": 8,
+      "employee_id": 7,
+      "upload_id": 8,
+      "upload_file_url": "/uploads/passport.pdf",
+      "created_at": "2015-04-24T06:22:17.648Z",
+      "updated_at": "2015-04-24T06:22:17.648Z"
+    }
+  ]
+}
+```
+
+
 ## Passport
 
 Passport is a property of each employee and each employee can have one or more
