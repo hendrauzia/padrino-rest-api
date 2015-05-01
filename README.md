@@ -66,7 +66,7 @@ reduce application requests.
       "phone": null,
       "created_at": "2015-04-23T00:58:57.583Z",
       "updated_at": "2015-04-23T00:58:57.583Z",
-      "employee_ids": [
+      "employees": [
         9
       ]
     }
@@ -144,7 +144,7 @@ And you can use curl with json above as the data to be created.
     "phone": null,
     "created_at": "2015-04-24T02:48:33.767Z",
     "updated_at": "2015-04-24T02:48:33.767Z",
-    "employee_ids": []
+    "employees": []
   },
   "employees": []
 }
@@ -172,7 +172,7 @@ And you can use curl with json above as the data to be created.
     "phone": null,
     "created_at": "2015-04-24T02:48:33.767Z",
     "updated_at": "2015-04-24T02:48:33.767Z",
-    "employee_ids": [
+    "employees": [
       9
     ]
   },
@@ -250,7 +250,7 @@ And you can use curl with json above as the data to be updated.
     "phone": "311.614.3341 x111",
     "created_at": "2015-04-24T02:48:33.767Z",
     "updated_at": "2015-04-24T02:48:33.767Z"
-    "employee_ids": [
+    "employees": [
       9
     ]
   },

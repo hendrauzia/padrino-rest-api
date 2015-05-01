@@ -42,6 +42,7 @@ Padrino.before_load do
   ActiveModel::Serializer.setup do |config|
     config.embed = :ids
     config.embed_in_root = true
+    config.default_key_type = :name
   end
 end
 

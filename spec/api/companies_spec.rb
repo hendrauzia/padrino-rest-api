@@ -20,7 +20,8 @@ describe 'Company' do
         email:      :string_or_null,
         phone:      :string_or_null,
         created_at: :date,
-        updated_at: :date
+        updated_at: :date,
+        employees:  :array
       })
     end
 
@@ -67,24 +68,25 @@ describe 'Company' do
         email:      data.email,
         phone:      data.phone,
         created_at: company.created_at.iso8601(3),
-        updated_at: company.updated_at.iso8601(3)
+        updated_at: company.updated_at.iso8601(3),
+        employees:  []
       })
     end
   end
 
   describe 'GET /api/companies/:id' do
-    let(:name)    { 'Company Name by GET /api/companies/:id' }
-    let(:company) { create :company, name: name }
+    let(:name)     { 'Company Name by GET /api/companies/:id' }
+
+    let!(:company)  { create :company, name: name }
+    let!(:position) { create :position }
+    let!(:employee) { create :employee, company: company, position: position }
 
     before do
-      position = create :position
-      employee = create :employee, company: company, position: position
-
       get "/api/companies/#{ company.id }"
     end
 
     it 'returns a company' do
-      expect_json(company: { id: company.id, name: name })
+      expect_json(company: { id: company.id, name: name, employees: [employee.id] })
     end
 
     include_examples "sideload-employees"
@@ -94,7 +96,6 @@ describe 'Company' do
   ['put', 'patch'].each do |method|
     describe "#{method.upcase} /api/companies/:id" do
       let(:name)    { "Company Name before #{method.upcase} /api/companies/:id" }
-      let(:company) { create :company, name: name }
       let(:data)    {{
         company: {
           name: "Company Name after #{method.upcase} /api/companies/:id",
@@ -106,15 +107,16 @@ describe 'Company' do
         }
       }}
 
-      before do
-        position = create :position
-        employee = create :employee, company: company, position: position
+      let!(:company)  { create :company, name: name }
+      let!(:position) { create :position }
+      let!(:employee) { create :employee, company: company, position: position }
 
+      before do
         send method, "/api/companies/#{ company.id }", data
       end
 
       it 'updates and return the company' do
-        expect_json(company: { id: company.id, **data[:company] })
+        expect_json(company: { id: company.id, **data[:company], employees: [employee.id] })
       end
 
       include_examples "sideload-employees"

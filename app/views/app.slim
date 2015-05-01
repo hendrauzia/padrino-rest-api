@@ -35,12 +35,11 @@ html
     script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.2/handlebars.min.js"
     script src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.11.3/ember.min.js"
     script src="//cdnjs.cloudflare.com/ajax/libs/ember-data.js/1.0.0-beta.16.1/ember-data.min.js"
-    /script src="//cdn.bootcss.com/ember.js/1.11.3/ember-template-compiler.js"
 
     script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"
 
     = javascript_include_tag 'ember-template-compiler'
-    = javascript_include_tag 'application', 'router', 'models/company', 'controllers/companies_edit_controller.js'
+    = javascript_include_tag 'application', 'router', 'models/company', 'models/employee', 'models/position', 'controllers/companies_edit_controller.js'
 
     = render 'templates/companies'
     = render 'templates/companies-show'

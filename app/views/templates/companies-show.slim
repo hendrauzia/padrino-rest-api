@@ -29,4 +29,16 @@ script type="text/x-handlebars" data-template-name="companies/show"
           </dl>
         </div>
       </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title clearfix">
+            <span class="panel-title__text">Employees</span>
+          </h2>
+        </div>
+        <ul class="list-group">
+          {{#each employee in employees}}
+            <li class="list-group-item">{{employee.name}} <em>({{employee.position.name}})</em></li>
+          {{/each}}
+        </ul>
+      </div>
     </div>

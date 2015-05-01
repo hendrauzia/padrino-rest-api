@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 5) do
   create_table "passports", force: :cascade do |t|
     t.integer  "employee_id", null: false
     t.integer  "upload_id",   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "passports", ["employee_id"], name: "index_passports_on_employee_id", using: :btree

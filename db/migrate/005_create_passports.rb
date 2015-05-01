@@ -3,7 +3,7 @@ class CreatePassports < ActiveRecord::Migration
     create_table :passports do |t|
       t.references :employee, null: false, index: true
       t.references :upload,   null: false, index: true
-      t.timestamps
+      t.timestamps            null: false
     end
 
     add_foreign_key :passports, :employees
