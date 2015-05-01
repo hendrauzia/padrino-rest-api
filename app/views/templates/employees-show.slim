@@ -1,0 +1,21 @@
+script type="text/x-handlebars" data-template-name="employees/show"
+  erb:
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title clearfix">
+            <span class="panel-title__text">Employee Detail</span>
+          </h2>
+        </div>
+        <div class="panel-body">
+          <dl class="dl-horizontal">
+            <dt>Id</dt>
+            <dd>{{model.id}}</dd>
+            <dt>Name</dt>
+            <dd>{{model.name}}</dd>
+            <dt>Position</dt>
+            <dd>{{model.position.name}}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>

@@ -37,7 +37,11 @@ script type="text/x-handlebars" data-template-name="companies/show"
         </div>
         <ul class="list-group">
           {{#each employee in employees}}
-            <li class="list-group-item">{{employee.name}} <em>({{employee.position.name}})</em></li>
+            <li class="list-group-item">
+              {{#link-to 'employees.show' employee}}
+                {{employee.name}} <em>({{employee.position.name}})</em>
+              {{/link-to}}
+            </li>
           {{/each}}
         </ul>
       </div>
