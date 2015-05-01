@@ -18,4 +18,20 @@ script type="text/x-handlebars" data-template-name="employees/show"
           </dl>
         </div>
       </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title clearfix">
+            <span class="panel-title__text">Passports</span>
+          </h2>
+        </div>
+        <ul class="list-group">
+          {{#each passport in passports}}
+            <li class="list-group-item">
+              <a href="{{passport.upload_file_url}}">
+                {{passport.upload_file_url}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
     </div>
