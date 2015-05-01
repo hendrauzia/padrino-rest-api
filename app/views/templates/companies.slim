@@ -3,7 +3,12 @@ script type="text/x-handlebars" data-template-name="companies/index"
     <div class="container">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h2 class="panel-title">Companies</h2>
+          <h2 class="panel-title clearfix">
+            <span class="panel-title__text">Companies</span>
+            {{#link-to 'companies.new' class="btn btn-primary pull-right"}}
+              <span class="glyphicon glyphicon-plus" style="color: white"></span>
+            {{/link-to}}
+          </h2>
         </div>
         <ul class="list-group">
           {{#each company in model}}

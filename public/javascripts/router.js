@@ -1,5 +1,6 @@
 PadrinoRestApi.Router.map(function(){
   this.resource('companies', function(){
+    this.route('new',  { path: 'new' });
     this.route('show', { path: ':id' });
     this.route('edit', { path: ':id/edit' });
   });

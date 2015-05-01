@@ -1,8 +1,9 @@
 PadrinoRestApi.CompaniesEditController = Ember.Controller.extend({
   actions: {
-    update: function(post){
-      post.save();
-      this.transitionTo('companies.show', post);
+    update: function(company){
+      company.save().then(function(){
+        this.transitionTo('companies.show', company);
+      }.bind(this));
     }
   }
 });

@@ -8,7 +8,7 @@ html
       .container-fluid
         .navbar-header
           button.navbar-toggle.collapsed data-toggle="collapse" data-target="#main-menu-navbar" type="button" aria-expanded="false"
-            span.sr-only TOggle navigation
+            span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
@@ -21,7 +21,7 @@ html
     .container
       .jumbotron
         h1 Padrino REST API
-        p This is an example of rest api server and client implementation using Padrino, Grape, RABL and Ember.js.
+        p This is an example of rest api server and client implementation using Padrino, Grape, Active Model Serializers and Ember.js.
         a.btn.btn-info href="https://github.com/hendrauzia/padrino-rest-api" Learn More
 
     .container
@@ -39,8 +39,9 @@ html
     script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"
 
     = javascript_include_tag 'ember-template-compiler'
-    = javascript_include_tag 'application', 'router', 'models/company', 'models/employee', 'models/position', 'controllers/companies_edit_controller.js'
+    = javascript_include_tag 'application', 'router', 'models/company', 'models/employee', 'models/position', 'controllers/companies_new_controller.js', 'controllers/companies_edit_controller.js'
 
     = render 'templates/companies'
+    = render 'templates/companies-new'
     = render 'templates/companies-show'
     = render 'templates/companies-edit'
