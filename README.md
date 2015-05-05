@@ -333,17 +333,18 @@ passport, following are the api available for managing passport.
 
 ### Create a passport
 
-    POST /api/employees/:employee_id/passport
+    POST /api/passports
 
 **Input**
 
-| Name | Type            | Description                               |
-| ---- | --------------- | ----------------------------------------- |
-| file | application/pdf | **Required**. The pdf file to be uploaded |
+| Name        | Type            | Description                               |
+| ----------- | --------------- | ----------------------------------------- |
+| employee_id | integer         | **Required**. The employee id number      |
+| file        | application/pdf | **Required**. The pdf file to be uploaded |
 
 **Example**
 
-    curl -X POST -F file=@passport.pdf http://127.0.0.1:3000/api/employees/7/passports
+    curl -X POST -F file=@passport.pdf http://127.0.0.1:3000/api/passports?employee_id=7
 
 **Response**
 

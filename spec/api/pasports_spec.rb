@@ -1,13 +1,13 @@
 require 'airborne_helper'
 
 describe 'Passport' do
-  describe 'POST /api/employees/:employee_id/passports' do
+  describe 'POST /api/passports' do
     let!(:employee) { create :employee, :director }
     let!(:file)     { fixture_file_upload 'files/passport.pdf', 'application/pdf' }
     let!(:digest)   { Digest::SHA256.file(File.join(Padrino.root, 'spec/fixtures/files/passport.pdf')) }
 
     before do
-      post "/api/employees/#{employee.id}/passports", file: file
+      post "/api/passports", employee_id: employee.id, file: file
     end
 
     after do
