@@ -16,5 +16,12 @@ class Api < Grape::API
         optional :phone,   type: String, allow_blank: true
       end
     end
+
+    params :passport do
+      group :passport, type: Hash do
+        requires :employee_id, type: Integer, allow_blank: false
+        requires :file,        type: Hash,    allow_blank: false
+      end
+    end
   end
 end

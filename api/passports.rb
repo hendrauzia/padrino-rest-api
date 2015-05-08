@@ -1,13 +1,16 @@
 class Api
   resource :passports do
     desc "Create a passport"
+    params do
+      use :passport
+    end
     post do
-      employee = Employee.find(params[:employee_id])
-      upload   = Upload.create(file: params[:file])
-      passport = Passport.create(employee: employee, upload: upload)
+      passport = declared(params).fetch('passport')
 
-      present passport.attributes
-      present :upload_file_url, passport.upload.file_url
+      employee = Employee.find(passport[:employee_id])
+      upload   = Upload.create(file: passport[:file])
+
+      Passport.create(employee: employee, upload: upload)
     end
   end
 end

@@ -7,7 +7,10 @@ describe 'Passport' do
     let!(:digest)   { Digest::SHA256.file(File.join(Padrino.root, 'spec/fixtures/files/passport.pdf')) }
 
     before do
-      post "/api/passports", employee_id: employee.id, file: file
+      post "/api/passports", passport: {
+        employee_id: employee.id,
+        file: file
+      }
     end
 
     after do
@@ -25,7 +28,7 @@ describe 'Passport' do
     end
 
     it 'return the passport' do
-      expect_json_types({
+      expect_json_types(passport: {
         id: :int,
         employee_id: :int,
         upload_id: :int,

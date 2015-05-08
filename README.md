@@ -344,17 +344,19 @@ passport, following are the api available for managing passport.
 
 **Example**
 
-    curl -X POST -F file=@passport.pdf http://127.0.0.1:3000/api/passports?employee_id=7
+    curl -X POST -F "passport[file]=@passport.pdf" -F "passport[employee_id]=7" http://127.0.0.1:3000/api/passports
 
 **Response**
 
 ```json
 {
-  "id": 8,
-  "employee_id": 7,
-  "upload_id": 8,
-  "upload_file_url": "/uploads/passport.pdf",
-  "created_at": "2015-04-24T06:22:17.648Z",
-  "updated_at": "2015-04-24T06:22:17.648Z"
+  "passport": {
+    "id": 8,
+    "employee_id": 7,
+    "upload_id": 8,
+    "upload_file_url": "/uploads/passport.pdf",
+    "created_at": "2015-04-24T06:22:17.648Z",
+    "updated_at": "2015-04-24T06:22:17.648Z"
+  }
 }
 ```
