@@ -354,7 +354,8 @@ passport, following are the api available for managing passport.
     "id": 8,
     "employee_id": 7,
     "upload_id": 8,
-    "upload_file_url": "/uploads/passport.pdf",
+    "upload_file_name": "passport-d93ee94d.pdf",
+    "upload_file_url": "/uploads/passport-d93ee94d.pdf",
     "created_at": "2015-04-24T06:22:17.648Z",
     "updated_at": "2015-04-24T06:22:17.648Z"
   }

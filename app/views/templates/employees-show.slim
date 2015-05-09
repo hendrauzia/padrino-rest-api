@@ -31,7 +31,7 @@ script type="text/x-handlebars" data-template-name="employees/show"
           {{#each passport in passports}}
             <li class="list-group-item">
               <a href="{{passport.upload_file_url}}">
-                {{passport.upload_file_url}}
+                {{passport.upload_file_name}}
               </a>
             </li>
           {{/each}}

@@ -23,7 +23,7 @@ describe 'Passport' do
     end
 
     it 'uploads to local file system' do
-      uploaded_digest = Digest::SHA256.file(File.join(Padrino.root, 'public/uploads/passport.pdf'))
+      uploaded_digest = Digest::SHA256.file(File.join(Padrino.root, 'public', Passport.last.upload.file_url))
       expect(uploaded_digest).to eq digest
     end
 
@@ -32,6 +32,7 @@ describe 'Passport' do
         id: :int,
         employee_id: :int,
         upload_id: :int,
+        upload_file_name: :string,
         upload_file_url: :string,
         created_at: :date,
         updated_at: :date
