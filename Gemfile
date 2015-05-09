@@ -25,6 +25,9 @@ gem 'grape-active_model_serializers'
 gem 'hashie-forbidden_attributes'
 gem 'padrino-grape', github: 'adamluzsi/padrino-grape'
 
+# Audit requirements
+gem 'paper_trail'
+
 # Or Individual Gems
 # %w(core support gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.12.5'
