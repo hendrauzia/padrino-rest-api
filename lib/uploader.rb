@@ -71,7 +71,15 @@ class Uploader < CarrierWave::Uploader::Base
   ##
   # Override the filename of the uploaded files
   #
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    return @override_filename if @override_filename.present?
+
+    dir  = File.dirname(original_filename)
+    ext  = File.extname(original_filename)
+    name = File.basename(original_filename, ext)
+    hex  = SecureRandom.hex(4)
+
+    filename = File.join(dir, "#{name}-#{hex}#{ext}")
+    @override_filename = filename
+  end
 end
