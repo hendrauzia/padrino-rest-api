@@ -7,6 +7,10 @@ PadrinoRestApi.Router.map(function(){
 
   this.resource('employees', function(){
     this.route('show', { path: ':id' });
+
+    this.resource('passports', { path: ':employee_id/passports' }, function(){
+      this.route('new', { path: 'new' });
+    });
   });
 });
 
@@ -37,5 +41,9 @@ PadrinoRestApi.CompaniesEditRoute = Ember.Route.extend({
 PadrinoRestApi.EmployeesShowRoute = Ember.Route.extend({
   model: function(params){
     return this.store.find('employee', params.id);
+  },
+
+  afterModel: function(model){
+    model.reload();
   }
 });
