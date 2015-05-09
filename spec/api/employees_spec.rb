@@ -27,4 +27,39 @@ describe 'Employees' do
     include_examples "sideload-positions"
     include_examples "sideload-passports"
   end
+
+  describe 'POST /api/employees' do
+    let(:company)  { create :company }
+    let(:position) { create :position }
+    let(:data)     { OpenStruct.new(
+      name: 'Employee Name by POST /api/employees',
+      company_id: company.id,
+      position_id: position.id
+    )}
+
+    before do
+      post '/api/employees', {
+        employee: {
+          name: data.name,
+          company_id: data.company_id,
+          position_id: data.position_id
+        }
+      }
+    end
+
+    subject(:employee) { Employee.find_by_name(data.name) }
+
+    it 'creates an employee' do
+      is_expected.to be_present
+    end
+
+    it 'returns employee' do
+      expect_json(employee: {
+        id: employee.id,
+        name: data.name,
+        company_id: data.company_id,
+        position_id: data.position_id
+      })
+    end
+  end
 end

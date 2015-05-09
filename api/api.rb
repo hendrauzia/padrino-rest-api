@@ -17,6 +17,14 @@ class Api < Grape::API
       end
     end
 
+    params :employee do
+      group :employee, type: Hash do
+        requires :name,        type: String,  allow_blank: false
+        requires :company_id,  type: Integer, allow_blank: false
+        requires :position_id, type: Integer, allow_blank: false
+      end
+    end
+
     params :passport do
       group :passport, type: Hash do
         requires :employee_id, type: Integer, allow_blank: false

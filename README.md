@@ -291,7 +291,7 @@ Following are api that you can use to manage employees.
 
 ```json
 {
-  "employees": ]
+  "employees": [
     {
       "id": 9,
       "name": "Halle Kuhlman",
@@ -325,6 +325,62 @@ Following are api that you can use to manage employees.
 }
 ```
 
+### Create an employee
+
+    POST /api/employees
+
+**Input**
+
+The following input must be put inside json root named `employee`.
+
+| Name        | Type    | Description                                   |
+| ----------- | ------- | --------------------------------------------- |
+| name        | string  | **Required**. The name of the employee.       |
+| company_id  | integer | **Required**. Company identification number.  |
+| position_id | integer | **Required**. Position identification number. |
+
+**Example**
+
+Let's put the json data to be created in a file named `body.json`.
+
+```json
+{
+  "employee": {
+    "name": "Halle Kuhlman",
+    "position_id": 2,
+    "company_id": 9
+  }
+}
+```
+
+And you can use curl with json above as the data to be created.
+
+    curl -H "Content-Type: application/json" -X POST -d @body.json http://127.0.0.1:3000/api/employees
+
+**Response**
+
+```json
+{
+  "employee": {
+    "id": 9,
+    "name": "Halle Kuhlman",
+    "position_id": 2,
+    "company_id": 9,
+    "created_at": "2015-04-29T02:05:28.122Z",
+    "updated_at": "2015-04-29T02:05:28.122Z",
+    "passports": []
+  },
+  "positions": [
+    {
+      "id": 2,
+      "name": "Director",
+      "created_at": "2015-04-29T02:05:28.092Z",
+      "updated_at": "2015-04-29T02:05:28.092Z"
+    }
+  ],
+  "passports": []
+}
+```
 
 ## Passport
 
